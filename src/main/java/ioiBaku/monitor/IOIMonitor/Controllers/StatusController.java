@@ -83,26 +83,6 @@ public class StatusController {
         return "staff";
 
     }
-//    @RequestMapping("/monitor-print")
-//    public String monitorPrint(Model model) {
-//        List<Status> myList = new ArrayList<>();
-//
-//        Format formatter = new SimpleDateFormat("HH:mm");
-//
-////        for(int i =1; i<=87;i++) {
-////            Status status = statusRepository.findById(i);
-//            status.setDate(formatter.format(new Date()));
-//            if (status.getStatus().toString().equals("Printing FINAL")||status.getStatus().toString().equals("Printing DRAFT")){
-//
-//                myList.add(status);
-////        }
-//
-//    }
-//
-//        model.addAttribute("statusList", myList);
-//        return "printing";
-//
-//    }
 
     @RequestMapping("/change/{id}/")
     public String ready(@PathVariable(name = "id", required = true) Integer id,@RequestParam(name = "status_select", required = true) String status_select,

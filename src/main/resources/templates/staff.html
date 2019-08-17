@@ -1,0 +1,221 @@
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <script src="//code.jquery.com/jquery-1.12.4.min.js"></script>
+    <script src="//rawgithub.com/indrimuska/jquery-editable-select/master/dist/jquery-editable-select.min.js"></script>
+    <link href="//rawgithub.com/indrimuska/jquery-editable-select/master/dist/jquery-editable-select.min.css" rel="stylesheet">
+    <style>
+  .select-editable { position:relative; background-color:white; border:solid grey 1px;  width:120px; height:18px; }
+  .select-editable select { position:absolute; top:0px; left:0px; font-size:14px; border:none; width:120px; margin:0; }
+  .select-editable input { position:absolute; top:0px; left:0px; width:100px; padding:1px; font-size:12px; border:none; }
+  .select-editable select:focus, .select-editable input:focus { outline:none; }
+</style>
+    <style>
+
+    table {
+  border-collapse: collapse;
+  border-color: white;width:31%;font-size: 14px;
+left:10px;
+
+}
+
+th, td {
+  text-align: center;
+
+  max-width:50%;
+
+
+}
+
+tr:nth-child(even){background-color: #f2f2f2}
+
+th {
+  background-color: #4CAF50;
+  color: white;
+}
+</style>
+</head>
+
+<body>
+
+<table border='1' style="position:absolute; left:30px;" cellpadding="1">
+
+    <thead>
+    <tr>
+        <th>ID</th>
+        <th>Country Code</th>
+        <th>Country</th>
+        <th>Change Status</th>
+        <th>Call</th>
+        <th>UNcall</th>
+
+
+    </tr>
+
+
+    </thead>
+
+
+    <tr th:each="status: ${statusList}" >
+                        <td th:text="${status.id}">0</td>
+                        <td th:text="${status.countryCode}">AZE</td>
+                        <td th:text="${status.country}">AZE</td>
+                        <td>
+                            <form action="get"  th:action="@{/change/{id}/(id=${status.id})}">
+                                <div class="select-editable">
+                                    <select name="status_select" onchange="this.nextElementSibling.value=this.value">
+                                        <option value=""></option>
+                                        <option value="Translating">Translating</option>
+                                        <option value="Printing">Printing</option>
+                                        <option value="Envelope Ready">Envelope Ready</option>
+                                    </select>
+                                    <input type="text" name="status_text" value=""/>
+                                </div>
+
+
+
+                                <input type="submit" value="Submit" />
+
+                            </form>
+                        </td>
+
+        <td>
+            <a th:href="@{/message/{id}(id=${status.id})}">Call</a>
+        </td>
+        <td>
+            <a th:href="@{/unmessage/{id}(id=${status.id})}">Un-Call</a>
+        </td>
+
+
+    </tr>
+
+
+    </tr>
+
+
+
+</table>
+
+<table border='1' style="position:relative; left:455px;" cellpadding="1">
+    <thead>
+    <tr>
+        <th>ID</th>
+        <th>Country Code</th>
+        <th>Country</th>
+        <th>Change Status</th>
+        <th>Call</th>
+        <th>UNcall</th>
+
+    </tr>
+
+
+    </thead>
+
+
+    <tr th:each="status2: ${statusList2}" >
+
+        <td th:text="${status2.id}">0</td>
+        <td th:text="${status2.countryCode}">AZE</td>
+        <td th:text="${status2.country}">AZE</td>
+        <td>
+            <form action="get"  th:action="@{/change/{id}/(id=${status2.id})}">
+                <div class="select-editable">
+                    <select name="status_select" onchange="this.nextElementSibling.value=this.value">
+                        <option value=""></option>
+                        <option value="Translating">Translating</option>
+                        <option value="Printing">Printing</option>
+                        <option value="Envelope Ready">Envelope Ready</option>
+                    </select>
+                    <input type="text" name="status_text" value=""/>
+                </div>
+
+
+
+                <input type="submit" value="Submit" />
+
+            </form>
+        </td>
+        <td>
+            <a th:href="@{/message/{id}(id=${status2.id})}">Call</a>
+        </td>
+        <td>
+            <a th:href="@{/unmessage/{id}(id=${status2.id})}">Un-Call</a>
+        </td>
+
+
+
+
+    </tr>
+
+
+
+</table>
+
+<table border='1' style="position:absolute; left:870px; top:8px" cellpadding="1" >
+    <thead>
+    <tr>
+        <th>ID</th>
+        <th>Country Code</th>
+        <th>Country</th>
+        <th>Change Status</th>
+        <th>Call</th>
+        <th>UNcall</th>
+
+    </tr>
+
+
+    </thead>
+
+
+    <tr th:each="status3: ${statusList3}" >
+
+        <td th:text="${status3.id}">0</td>
+        <td th:text="${status3.countryCode}">AZE</td>
+        <td th:text="${status3.country}">AZE</td>
+        <td>
+            <form action="get"  th:action="@{/change/{id}/(id=${status3.id})}">
+                <div class="select-editable">
+                    <select name="status_select" onchange="this.nextElementSibling.value=this.value">
+                        <option value=""></option>
+                        <option value="Translating">Translating</option>
+                        <option value="Printing">Printing</option>
+                        <option value="Envelope Ready">Envelope Ready</option>
+                    </select>
+                    <input type="text" name="status_text" value=""/>
+                </div>
+
+
+
+                <input type="submit" value="Submit" />
+
+            </form>
+        </td>
+
+        <td>
+            <a th:href="@{/message/{id}(id=${status3.id})}">Call</a>
+        </td>
+        <td>
+            <a th:href="@{/unmessage/{id}(id=${status3.id})}">Un-Call</a>
+        </td>
+
+
+
+
+    </tr>
+
+
+
+</table>
+
+
+
+
+
+
+
+
+</body>
+
+
+
+
+</html>

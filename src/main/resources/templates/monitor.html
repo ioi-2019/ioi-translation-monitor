@@ -1,0 +1,162 @@
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="refresh" content="3">
+
+
+<style>
+.message{
+        -webkit-animation: color-change 1s infinite;
+        -moz-animation: color-change 1s infinite;
+        -o-animation: color-change 1s infinite;
+        -ms-animation: color-change 1s infinite;
+        animation: color-change 1s infinite;
+    }
+
+    @-webkit-keyframes color-change {
+        0% { color: red; }
+        50% { color: blue; }
+        100% { color: green; }
+    }
+    @-moz-keyframes color-change {
+        0% { color: red; }
+        50% { color: blue; }
+        100% { color: green; }
+    }
+    @-ms-keyframes color-change {
+        0% { color: red; }
+        50% { color: blue; }
+        100% { color: green; }
+    }
+    @-o-keyframes color-change {
+        0% { color: red; }
+        50% { color: blue; }
+        100% { color: green; }
+    }
+    @keyframes color-change {
+        0% { color: red; }
+        50% { color: blue; }
+        100% { color: green; }
+
+
+}
+
+
+    table {
+  border-collapse: collapse;
+  border-color: white;width:31%;font-size: 15px;padding:30px;
+  margin-top:10px;
+
+}
+
+th, td {
+  text-align: left;
+
+  max-width:50%;
+
+
+}
+
+tr:nth-child(even){background-color: #f2f2f2}
+
+th {
+  background-color: #4CAF50;
+  color: white;
+}
+</style>
+
+</head>
+<body>
+
+    <table border='1' style="position:relative; left:5px; top:11px" cellpadding="2">
+
+    <thead>
+    <tr>
+        <th>ID</th>
+        <th>Country</th>
+        <th>Status</th>
+        <th>Message</th>
+    </tr>
+
+
+    </thead>
+
+
+            <tr th:each="status: ${statusList}" >
+
+                <td th:text="${status.id}">0</td>
+                <td th:text="${status.country}">AZE</td>
+                <td th:text="${status.status}">Printing</td>
+                <td th:text="${status.message}" class="message">Come</td>
+
+
+            </tr>
+
+
+
+        </table>
+
+    <table border='1' style="position:relative; left:430px;bottom:660px" cellpadding="2">
+    <thead>
+    <tr>
+        <th>ID</th>
+        <th>Country</th>
+        <th>Status</th>
+        <th>Message</th>
+    </tr>
+
+
+    </thead>
+
+
+    <tr th:each="status2: ${statusList2}" >
+
+        <td th:text="${status2.id}">0</td>
+        <td th:text="${status2.country}">AZE</td>
+        <td th:text="${status2.status}">Printing</td>
+        <td th:text="${status2.message}" class="message">Come</td>
+
+
+    </tr>
+
+
+
+</table>
+
+    <table border='1' style="position:relative; left:859px; bottom:1331px" cellpadding="2">
+    <thead>
+    <tr>
+        <th>ID</th>
+        <th>Country</th>
+        <th>Status</th>
+        <th>Message</th>
+    </tr>
+
+
+    </thead>
+
+
+    <tr th:each="status3: ${statusList3}" >
+
+        <td th:text="${status3.id}">0</td>
+        <td th:text="${status3.country}">AZE</td>
+        <td th:text="${status3.status}">Printing</td>
+        <td th:text="${status3.message}" class="message">Come</td>
+
+
+    </tr>
+
+
+
+</table>
+
+
+
+
+
+
+
+
+</body>
+
+
+</html>
